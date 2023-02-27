@@ -10,16 +10,27 @@ Async/await adalah fitur baru yang diperkenalkan pada ES8/ES2017 yang memungkink
 
 Dalam async JavaScript Promise, Anda dapat menggunakan promise untuk melakukan operasi asinkron seperti memuat data dari server atau mengeksekusi fungsi yang membutuhkan waktu yang lama untuk dijalankan, dan kemudian menggunakan async/await untuk menunggu hasil operasi tersebut selesai sebelum melanjutkan eksekusi kode.
 
-promise adalah Sebuah mekanisme baru pada fitur javascript / ES6 yang merepresentasikan sebuah object request pengolahan data yang dilakukan secara asynchronous seperti ajax, dan promise ini mewakili sebuah operasi yang belum selesai, tetapi diharapkan di masa mendatang.
-Contoh nya , misalkan kalian membuat janji untuk bertemu dengan teman atau saudara, tiba-tiba teman tersebut bertanya pada kalian, bro lu udah dimana ?
+## *Pengertian Singkat*
 
-ada tiga kemungkinan dalam kasus ini : 
+Promise bisa dikatakan sebagai object yang menyimpan hasil dari sebuah operasi asynchronous baik itu hasil yang diinginkan (resolved value) atau alasan kenapa operasi itu gagal (failure reason).
 
-dalam perjalanan, sudah sampai atau janji ketemuan dibatalkan. Seperti itulah analogi dari promise ini, ketika melakukan sebuah request asynchronous seperti ajax, maka ada 3 kemungkinan state :
+Kita ambil contoh seperti saat kita memesan ojek online.
 
-1. Pending (sedang dalam proses)
-2. Fulfilled ( terpenuhi )
-3. Rejected ( dibatalkan / gagal)
+Saat kita mencari driver lewat aplikasi, aplikasi akan berjanji(promise) memberi tahu hasil dari pencarian kita.
+
+Hasilnya bisa diantara dua, yaitu driver ditemukan (resolved value) atau alasan kenapa driver tidak ditemukan(failure reason).
+
+Sebuah Promise berada di salah satu diantara 3 kondisi(state):
+
+1. pending, operasi sedang berlangsung
+2. fulfilled, operasi selesai dan berhasil
+3. rejected, operasi selesai namun gagal
+
+Sama seperti pada kasus memesan ojek online, status permintaan kita pada aplikasi online diantara tiga kondisi:
+
+1. Mencari driver (pending)
+2. Menemukan driver (fulfilled)
+3. Driver tidak ditemukan (rejected)
 
 ## *Kapan menggunakan async javascript promise?*
 
