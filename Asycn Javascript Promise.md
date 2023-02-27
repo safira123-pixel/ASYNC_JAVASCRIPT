@@ -1,5 +1,19 @@
 # ASYNC JAVASCRIPT PROMISE 
 
+## *Apa pengertian dari Operasi Asynchronous?*
+
+**Operasi asynchronous adalah operasi yang tidak dieksekusi secara langsung pada urutan baris kode yang ditulis, sehingga program tetap dapat berjalan tanpa harus menunggu operasi tersebut selesai. Dalam operasi asynchronous, program dapat melanjutkan eksekusi kode lain selama operasi asynchronous sedang berjalan, sehingga menjaga program tetap responsif dan cepat.**
+
+Contoh dari operasi asynchronous adalah permintaan data melalui jaringan, operasi I/O pada sistem file, dan animasi pada antarmuka pengguna. Dalam semua kasus tersebut, program tidak dapat menentukan dengan pasti kapan operasi tersebut akan selesai, sehingga harus menunggu hingga operasi selesai sebelum melanjutkan eksekusi kode lain.
+
+Untuk menangani operasi asynchronous, JavaScript menggunakan konsep Promise dan callback. Promise adalah sebuah objek yang merepresentasikan nilai atau tugas yang belum selesai, sementara callback adalah sebuah fungsi yang akan dieksekusi setelah operasi asynchronous selesai dilakukan.
+
+Dalam kasus Promise, program dapat menggunakan "then" untuk menentukan tindakan yang harus diambil setelah operasi asynchronous selesai dilakukan (resolve), atau menggunakan "catch" untuk menangani kesalahan (reject) yang terjadi selama operasi asynchronous berlangsung.
+
+Dalam kasus callback, program dapat menentukan sebuah fungsi yang akan dieksekusi setelah operasi asynchronous selesai dilakukan.
+
+Dalam kesimpulannya, operasi asynchronous adalah operasi yang tidak dieksekusi secara langsung pada urutan baris kode yang ditulis, dan dapat ditangani menggunakan konsep Promise dan callback di JavaScript.
+
 ## *Apa pengertian dari async javascript promise?*
 
 Async JavaScript Promise adalah konsep di dalam bahasa pemrograman JavaScript yang membantu developer mengelola dan menangani operasi asinkron (asynchronous) yang kompleks.
@@ -12,7 +26,7 @@ Dalam async JavaScript Promise, Anda dapat menggunakan promise untuk melakukan o
 
 ## *Pengertian Singkat*
 
-Promise bisa dikatakan sebagai object yang menyimpan hasil dari sebuah operasi asynchronous baik itu hasil yang diinginkan (resolved value) atau alasan kenapa operasi itu gagal (failure reason).
+**Promise bisa dikatakan sebagai object yang menyimpan hasil dari sebuah operasi asynchronous baik itu hasil yang diinginkan (resolved value) atau alasan kenapa operasi itu gagal (failure reason).**
 
 Kita ambil contoh seperti saat kita memesan ojek online.
 
@@ -32,22 +46,7 @@ Sama seperti pada kasus memesan ojek online, status permintaan kita pada aplikas
 2. Menemukan driver (fulfilled)
 3. Driver tidak ditemukan (rejected)
 
-## *Kapan menggunakan async javascript promise?*
-
-Async JavaScript Promise digunakan ketika Anda ingin menangani operasi asinkron (asynchronous) dalam kode JavaScript. 
-
-Beberapa contoh operasi asinkron yang umum dilakukan dalam JavaScript meliputi:
-
-1. Memuat data dari server
-2. Mengambil data dari API
-3. Menjalankan operasi I/O yang membutuhkan waktu yang lama, seperti membaca atau menulis file
-4. Menggunakan timer, seperti setTimeout() dan setInterval()
-
-Dalam kasus-kasus seperti ini, Anda dapat menggunakan Promise untuk melakukan operasi asinkron dan menentukan tindakan yang akan diambil ketika operasi selesai, baik berhasil atau gagal. Promise memungkinkan Anda untuk menuliskan kode yang bersifat non-blocking, sehingga tidak menghentikan eksekusi kode pada saat menunggu hasil operasi asinkron.
-
-Selain Promise, Anda juga dapat menggunakan async/await untuk menangani operasi asinkron. async/await adalah cara baru dan lebih mudah untuk menulis kode asinkron, di mana Anda dapat menunggu hasil operasi asinkron sebelum melanjutkan eksekusi kode. async/await sangat berguna ketika Anda ingin menulis kode asinkron yang bersifat sinkronus, karena kode yang ditulis dengan cara ini lebih mudah dibaca dan dipahami.
-
-## *Kapan menggunakan async javascript promise dan contohnya*
+## *Kapan menggunakan async javascript promise*
 
 Async JavaScript Promise digunakan ketika Anda ingin menangani operasi asinkron dalam JavaScript, seperti memuat data dari server, mengambil data dari API, atau mengeksekusi fungsi yang membutuhkan waktu yang lama untuk dijalankan. Berikut ini adalah beberapa contoh penggunaan async JavaScript Promise:
 
@@ -135,11 +134,25 @@ Untuk membuat Promise, Anda dapat menggunakan constructor Promise yang memiliki 
 
 Berikut contoh penggunaannya:
 
+Template : 
+
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
   // melakukan operasi asinkron
   // jika operasi berhasil, panggil resolve dengan nilai yang diinginkan
   // jika operasi gagal, panggil reject dengan alasan yang diinginkan
+});
+```
+Contoh : 
+
+```javascript
+let progress = 100;
+const download = new Promise((resolve, reject) => {
+  if (progress === 100) {
+    resolve('Download complete');
+  } else {
+    reject('Download failed');
+  }
 });
 ```
 
@@ -148,6 +161,8 @@ const myPromise = new Promise((resolve, reject) => {
 Setelah Promise dibuat, Anda dapat menangani hasilnya dengan then() dan catch(). Metode then() digunakan untuk menentukan tindakan yang akan diambil ketika Promise berhasil di-resolve, sedangkan catch() digunakan untuk menentukan tindakan yang akan diambil ketika Promise di-reject. 
 
 Berikut contoh penggunaannya:
+
+Template : 
 
 ```javascript
 myPromise
@@ -158,12 +173,24 @@ myPromise
     // tindakan yang akan diambil jika Promise di-reject
   });
 ```
+contoh : 
+
+```javascript
+  .then((result) => {
+    console.log(result); // Download complete
+  })
+  .catch((error) => {
+    console.log(error); // Download failed atau tidak ditampilkan jika tidak ada error
+  });
+```
 
 3. Menggabungkan Promise dengan Promise.all()
 
 Jika Anda memiliki beberapa Promise yang perlu dijalankan secara paralel, Anda dapat menggunakan Promise.all() untuk menunggu semua Promise selesai dan mengembalikan nilai hasil dari semua Promise. 
 
 Berikut contoh penggunaannya:
+
+Template : 
 
 ```javascript
 const promises = [
@@ -180,6 +207,22 @@ Promise.all(promises)
     // tindakan yang akan diambil jika ada Promise yang di-reject
   });
 ```
+Contoh :
+```javascript 
+const downloadStart = new Promise((resolve, reject) => {
+  resolve('0%');
+});
+const downloadHalf = new Promise((resolve, reject) => {
+  resolve('50%');
+});
+const downloadFull = new Promise((resolve, reject) => {
+  resolve('100%');
+});
+Promise.all([downloadStart, downloadHalf, downloadFull]).then((result) => {
+  console.log(result); // [ '0%', '50%', '100%' ]
+});
+```
+
 4. Menggunakan async/await
 
 async/await adalah fitur baru dalam JavaScript yang memungkinkan penulisan kode asinkron dengan gaya yang mirip dengan kode sinkron. Dalam async/await, Anda dapat menunggu hasil operasi asinkron sebelum melanjutkan eksekusi kode. 
