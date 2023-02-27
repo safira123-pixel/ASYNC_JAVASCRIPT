@@ -10,6 +10,17 @@ Async/await adalah fitur baru yang diperkenalkan pada ES8/ES2017 yang memungkink
 
 Dalam async JavaScript Promise, Anda dapat menggunakan promise untuk melakukan operasi asinkron seperti memuat data dari server atau mengeksekusi fungsi yang membutuhkan waktu yang lama untuk dijalankan, dan kemudian menggunakan async/await untuk menunggu hasil operasi tersebut selesai sebelum melanjutkan eksekusi kode.
 
+promise adalah Sebuah mekanisme baru pada fitur javascript / ES6 yang merepresentasikan sebuah object request pengolahan data yang dilakukan secara asynchronous seperti ajax, dan promise ini mewakili sebuah operasi yang belum selesai, tetapi diharapkan di masa mendatang.
+Contoh nya , misalkan kalian membuat janji untuk bertemu dengan teman atau saudara, tiba-tiba teman tersebut bertanya pada kalian, bro lu udah dimana ?
+
+ada tiga kemungkinan dalam kasus ini : 
+
+dalam perjalanan, sudah sampai atau janji ketemuan dibatalkan. Seperti itulah analogi dari promise ini, ketika melakukan sebuah request asynchronous seperti ajax, maka ada 3 kemungkinan state :
+
+1. Pending (sedang dalam proses)
+2. Fulfilled ( terpenuhi )
+3. Rejected ( dibatalkan / gagal)
+
 ## *Kapan menggunakan async javascript promise?*
 
 Async JavaScript Promise digunakan ketika Anda ingin menangani operasi asinkron (asynchronous) dalam kode JavaScript. 
